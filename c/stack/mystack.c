@@ -1,22 +1,39 @@
 #include "mystack.h"
 
-
-bool push(Node **stack, void data){
+bool push(Node **stack, void *data){
   Node *node;
   node = (Node *) malloc( sizeof(Node) );
-  if (node == NULL) return false;
+  if (!node) return false;
 
   node->data = data;
   node->next = *stack;
   *stack = node;
+  return true;
 }
 
-bool pop(Node **stack, void *data){
+bool pop(Node **stack, void **data){
   Node *toDelete;
   if ( !(toDelete = *stack) ) return false;
 
-  *data  = *stack->data;
-  *stack = *stack->next;
+  *data  = toDelete->data;
+  *stack = toDelete->next;
   free(toDelete);
+  return true;
 }
+
+bool createStack (Node **stack){
+  *stack = NULL;
+  return true;
+}
+
+bool deleteStack (Node **stack){
+  Node *next;
+  while (*stack) {
+    next = (*stack)->next;
+    free(*stack);
+    *stack = next;
+  }
+  return true;
+}
+
 
