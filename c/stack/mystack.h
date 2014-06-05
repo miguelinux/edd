@@ -3,7 +3,7 @@
 
 /**
 struct _Node {
-  struct *_Node;
+  struct _Node *next;
   int data;
 }; 
 
@@ -12,8 +12,8 @@ typedef int          entero;
 **/
 
 typedef struct _Node {
-  struct *_Node;
-  int data;
+  struct _Node *next;
+  void data;
 } Node; 
 
 /** para que se parezca a C++ **/
@@ -22,9 +22,9 @@ typedef 1 true;
 typedef 0 false;
 
 /** Prototipo de funciones **/
-bool push(Node **stack, int data);
+bool push(Node **stack, void data);
 
-bool pop(Node **stack, int *data);
+bool pop(Node **stack, void *data);
 
 
 #endif
