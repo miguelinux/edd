@@ -1,29 +1,30 @@
+#include <stdlib.h>
 #include "mystack.h"
 
 bool push(Node **stack, void *data){
   Node *node;
   node = (Node *) malloc( sizeof(Node) );
-  if (!node) return false;
+  if (!node) return FALSE;
 
   node->data = data;
   node->next = *stack;
   *stack = node;
-  return true;
+  return TRUE;
 }
 
 bool pop(Node **stack, void **data){
   Node *toDelete;
-  if ( !(toDelete = *stack) ) return false;
+  if ( !(toDelete = *stack) ) return FALSE;
 
   *data  = toDelete->data;
   *stack = toDelete->next;
   free(toDelete);
-  return true;
+  return TRUE;
 }
 
 bool createStack (Node **stack){
   *stack = NULL;
-  return true;
+  return TRUE;
 }
 
 bool deleteStack (Node **stack){
@@ -33,7 +34,7 @@ bool deleteStack (Node **stack){
     free(*stack);
     *stack = next;
   }
-  return true;
+  return TRUE;
 }
 
 

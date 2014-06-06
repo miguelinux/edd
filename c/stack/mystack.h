@@ -18,8 +18,8 @@ typedef struct _Node {
 
 /** para que se parezca a C++ **/
 typedef int bool;
-typedef 1 true;
-typedef 0 false;
+#define TRUE  1  
+#define FALSE 0 
 
 /** Prototipo de funciones **/
 bool push(Node **stack, void  *data);
